@@ -1,3 +1,6 @@
+20130705
+- Removed zero-padding from %page_number%. Use %page_number_padded% and %page_index_padded% for zero-padded numbers.
+
 20130701
 - Update manga parser.
 - Add new option to back up old file if the filesize is different (backupOldFile).

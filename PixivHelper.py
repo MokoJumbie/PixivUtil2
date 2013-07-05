@@ -122,21 +122,26 @@ def makeFilename(nameFormat, imageInfo, artistInfo=None, tagsSeparator=' ', tags
   
   ## get the page index & big mode if manga
   page_index = ''
+  page_index_padded = ''
   page_number = ''
+  page_number_padded = ''
   page_big = ''
   if imageInfo.imageMode == 'manga':
     idx = __re_manga_index.findall(fileUrl)
     if len(idx) > 0:
-      page_index = idx[0]#[0]
+      page_index = str(idx[0])#[0]
       page_number = str(int(page_index) + 1)
-      padding = len(str(imageInfo.imageCount))
-      page_number = str(page_number)
-      page_number = page_number.zfill(padding)
+      padding_for_index = len(str(imageInfo.imageCount - 1))
+      padding_for_number = len(str(imageInfo.imageCount))
+      page_index_padded = page_index.zfill(padding_for_index)
+      page_number_padded = page_number.zfill(padding_for_number)
     if fileUrl.find('_big') > -1 or not fileUrl.find('_m') > -1:
       page_big = 'big'
   nameFormat = nameFormat.replace('%page_big%', page_big)
   nameFormat = nameFormat.replace('%page_index%', page_index)
   nameFormat = nameFormat.replace('%page_number%', page_number)
+  nameFormat = nameFormat.replace('%page_index_padded%', page_index_padded)
+  nameFormat = nameFormat.replace('%page_number_padded%', page_number_padded)
   
   if tagsSeparator == '%space%':
     tagsSeparator = ' '

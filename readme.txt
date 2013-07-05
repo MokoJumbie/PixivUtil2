@@ -213,7 +213,9 @@ filenameformat ==> The format for the filename, reserved/illegal character will
                                       the file extensions.
 	        -> %page_big%     ==> for manga mode, add big in the filename.
 	        -> %page_index%   ==> for manga mode, add page number with 0-index.
+	        -> %page_index_padded%   ==> same as %page_index% but padded with zeros according to the number of images.
 	        -> %page_number%  ==> for manga mode, add page number with 1-index.
+	        -> %page_number_padded%  ==> same as %page_number% but padded with zeros according to the number of images.
 	        -> %bookmark%     ==> for bookmark mode, add 'Bookmarks' string.
 	        -> %original_member_id%    ==> for bookmark mode, put original member
                                                id.
